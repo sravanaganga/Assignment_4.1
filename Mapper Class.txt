@@ -10,12 +10,12 @@ import org.apache.hadoop.mapreduce.*;
 public class Mapper2 extends Mapper<LongWritable,Text,Text,IntWritable> 
 {
 	@Override
-	public void map(LongWritable Key,Text value,Context context)throws 
-	IOException,InterruptedException
+	public void map(LongWritable Key,Text value,Context context)throws IOException,InterruptedException
 	{
 		String line = value.toString();
-        String[] lineArray = line.split("\\|");	
-        int num = lineArray.length;        
+        	String[] lineArray = line.split("\\|");	
+        	int num = lineArray.length;        
+		
 		if (lineArray[0].toString().equals("NA") || lineArray[1].toString().equals("NA") )
 		{
 			context.write(new Text(line),new IntWritable(num));
